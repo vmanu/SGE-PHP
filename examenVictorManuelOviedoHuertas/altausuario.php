@@ -28,10 +28,10 @@ and open the template in the editor.
                 if (anno < anyo || (anno === anyo && month === (mes + 1) && day === dia)) {
                     alert("Fecha no es posterior a la actual");
                 } else {
-                    if (anno===anyo&&month < (mes + 1)) {
+                    if (anno === anyo && month < (mes + 1)) {
                         alert("Fecha no es posterior a la actual");
-                    }else{
-                        if(anno===anyo&&month===(mes+1)&&day<dia){
+                    } else {
+                        if (anno === anyo && month === (mes + 1) && day < dia) {
                             alert("Fecha no es posterior a la actual");
                         }
                     }
@@ -60,17 +60,6 @@ and open the template in the editor.
                     }
                 }
             }
-
-            /*function activarDesactivarCampos(valor) {
-             $("#name").prop("disabled", valor);
-             $("#surname").prop("disabled", valor);
-             $("#question").prop("disabled", valor);
-             $("#answer").prop("disabled", valor);
-             $("#tipo").prop("disabled", valor);
-             $("#submit").prop("disabled", valor);
-             }*/
-
-            
         </script>
     </head>
     <body>
