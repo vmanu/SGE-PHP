@@ -9,10 +9,6 @@
             var mes = date.getMonth();
             var anyo = date.getFullYear();
 
-            $(document).ready(function () {
-                $("#question").val(<?php echo $_POST["Question"]; ?>);
-            });
-
             function compruebaFecha() {
                 var diaguardado = $("#fecha").val();
                 var anno = diaguardado.substring(0, diaguardado.indexOf("-")) * 1;
@@ -35,18 +31,6 @@
 
     <body>
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "empresa";
-
-// Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-
         $nombre = $_POST["Name"];
         $ape = $_POST["Surname"];
         $log = $_POST["Login"];
@@ -54,16 +38,6 @@
         $tipo = $_POST["Type"];
         $pregunta = $_POST["Question"];
         $respuesta = $_POST["Answer"];
-
-        $sql = "INSERT INTO Usuarios (nombre, apellidos, login, pwd, tipo, pregunta, respuesta)
-            VALUES ('$nombre', '$ape', '$log','$pass','$tipo', '$pregunta', '$respuesta' )";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        mysqli_close($conn);
         ?> 
         <form method="POST" action="Modifica-bbdd.php">
             <table>
@@ -107,7 +81,7 @@
                 <tr>
                     <td>Pregunta: </td>
                     <td>
-                        <div><input type="radio" name="Question" value="¿Nombre del padre?" <? if($pregunta=="¿Nombre del padre?"){echo "checked";} ?>/>¿Nombre del padre? <imput type="radio" name="Question" value="¿Nombre de la madre?" <? if($pregunta=="¿Nombre de la madre?"){echo "checked";} ?>/>¿Nombre de la madre?<input type="radio" name="Question" value="¿Cual fue tu primer colegio?" <? if($pregunta=="¿Cual fue tu primer colegio?"){echo "checked";} ?>/>¿Cual fue tu primer colegio?<input type="radio" name="Question" value="¿Como se llamaba tu primera mascota?" <? if($pregunta=="¿Como se llamaba tu primera mascota?"){echo "checked";} ?>/>¿Como se llamaba tu primera mascota?</div>
+                        <div><input type="radio" name="Question" value="¿Nombre del padre?" <? if($pregunta=="¿Nombre del padre?"){echo "checked";} ?> />¿Nombre del padre? <input type="radio" name="Question" value="¿Nombre de la madre?" <? if($pregunta=="¿Nombre de la madre?"){echo "checked";} ?>/>¿Nombre de la madre? <input type="radio" name="Question" value="¿Cual fue tu primer colegio?" <? if($pregunta=="¿Cual fue tu primer colegio?"){echo "checked";} ?>/>¿Cual fue tu primer colegio? <input type="radio" name="Question" value="¿Como se llamaba tu primera mascota?" <? if($pregunta=="¿Como se llamaba tu primera mascota?"){echo "checked";}?> ¿Como se llamaba tu primera mascota?</div>
                     </td>
                 </tr>
                 <tr>
@@ -127,5 +101,28 @@
             </table>
             <input type="submit" id="submit" value="Modificar"/>
         </form>
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "empresa";
+
+// Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "INSERT INTO Usuarios (nombre, apellidos, login, pwd, tipo, pregunta, respuesta)
+            VALUES ('$nombre', '$ape', '$log','$pass','$tipo', '$pregunta', '$respuesta' )";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        mysqli_close($conn);
+        ?> 
     </body>
 </html> 
