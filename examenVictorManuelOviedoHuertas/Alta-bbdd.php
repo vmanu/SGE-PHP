@@ -113,22 +113,19 @@
                 <tr>
                     <td>Respuesta: </td>
                     <td><input type="text" name="Answer" id="answer" required value=
-                        <?=$respuesta?>
+                        <?= $respuesta ?>
                                />
                     </td>
                 </tr>
                 <tr>
                     <td>Fecha: </td>
                     <td><input type="date" name="fecha" id="fecha" required onchange="compruebaFecha()" value=
-                        <?=$_POST["fecha"];?>
+                        <?= $_POST["fecha"]; ?>
                                />
                     </td>
                 </tr>
             </table>
             <input type="submit" id="submit" value="Modificar"/>
         </form>
-
-        <br/>
-
     </body>
 </html> 
