@@ -105,6 +105,6 @@
         mysqli_close($conn);
         ?> 
         <br/>
-        <a href="index.html"><button>modificar</button></a>
+        <a href="altausuario.php"><button>volver</button></a>
     </body>
 </html> 

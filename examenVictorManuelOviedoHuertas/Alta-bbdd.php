@@ -38,6 +38,28 @@
         $tipo = $_POST["Type"];
         $pregunta = $_POST["Question"];
         $respuesta = $_POST["Answer"];
+        
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "empresa";
+
+// Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "INSERT INTO Usuarios (nombre, apellidos, login, pwd, tipo, pregunta, respuesta)
+            VALUES ('$nombre', '$ape', '$log','$pass','$tipo', '$pregunta', '$respuesta' )";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        mysqli_close($conn);
         ?> 
         <form method="POST" action="Modifica-bbdd.php">
             <table>
@@ -73,15 +95,15 @@
                     <td>Tipo: </td>
                     <td>
                         <select style="width: 15%" name="Type" id="tipo">
-                            <option value="Administrador" <? if($tipo=="Administrador"){echo "selected";} ?>>Administrador</option>
-                            <option value="Normal" <? if($tipo=="Normal"){echo "selected";} ?>>Normal</option>
+                            <option value="Administrador" <?php if($tipo=="Administrador"){echo "selected";} ?>>Administrador</option>
+                            <option value="Normal" <?php if($tipo=="Normal"){echo "selected";} ?>>Normal</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Pregunta: </td>
                     <td>
-                        <div><input type="radio" name="Question" value="¿Nombre del padre?" <? if($pregunta=="¿Nombre del padre?"){echo "checked";} ?> />¿Nombre del padre? <input type="radio" name="Question" value="¿Nombre de la madre?" <? if($pregunta=="¿Nombre de la madre?"){echo "checked";} ?>/>¿Nombre de la madre? <input type="radio" name="Question" value="¿Cual fue tu primer colegio?" <? if($pregunta=="¿Cual fue tu primer colegio?"){echo "checked";} ?>/>¿Cual fue tu primer colegio? <input type="radio" name="Question" value="¿Como se llamaba tu primera mascota?" <? if($pregunta=="¿Como se llamaba tu primera mascota?"){echo "checked";}?> ¿Como se llamaba tu primera mascota?</div>
+                        <div><input type="radio" name="Question" value="¿Nombre del padre?" <?php if($pregunta=="¿Nombre del padre?"){echo "checked";} ?> />¿Nombre del padre? <input type="radio" name="Question" value="¿Nombre de la madre?" <?php if($pregunta=="¿Nombre de la madre?"){echo "checked";} ?>/>¿Nombre de la madre? <input type="radio" name="Question" value="¿Cual fue tu primer colegio?" <?php if($pregunta=="¿Cual fue tu primer colegio?"){echo "checked";} ?>/>¿Cual fue tu primer colegio? <input type="radio" name="Question" value="¿Como se llamaba tu primera mascota?" <?php if($pregunta=="¿Como se llamaba tu primera mascota?"){echo "checked";}?>/> ¿Como se llamaba tu primera mascota?</div>
                     </td>
                 </tr>
                 <tr>
@@ -101,28 +123,5 @@
             </table>
             <input type="submit" id="submit" value="Modificar"/>
         </form>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "empresa";
-
-// Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-
-        $sql = "INSERT INTO Usuarios (nombre, apellidos, login, pwd, tipo, pregunta, respuesta)
-            VALUES ('$nombre', '$ape', '$log','$pass','$tipo', '$pregunta', '$respuesta' )";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        mysqli_close($conn);
-        ?> 
     </body>
 </html> 
