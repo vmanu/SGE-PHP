@@ -13,7 +13,33 @@ and open the template in the editor.
     </head>
     <body>
         <form method="POST" action="Procesa_bajaUsuario.php">
-            <div>Id: <input type="text" name="Login" id="id" required/> Contraseña: <input type="password" name="Pass" id="pass" required/></div>
+            Selecciona login
+            <select name="Login">
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "empresa";
+            echo "Hello0";
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            echo "Hello1";
+            if ($conn->connect_error) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            echo "Hello2";
+            $sql = "SELECT login FROM usuarios";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='".$row["login"]."'>".$row["login"]."</option>";
+                }
+            } else {
+                echo "0 results";
+            }
+            mysqli_close($conn);
+                
+            ?>
+            </select>
             <div><input type="submit" id="submit" value="Dar de baja"/></div>
         </form>
     </body>

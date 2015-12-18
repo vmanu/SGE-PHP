@@ -13,14 +13,6 @@
                     ?>
                 </td>
             </tr>
-            <tr>
-                <td>Pass: </td>
-                <td>
-                    <?php
-                    echo $_POST["Pass"];
-                    ?>
-                </td>
-            </tr>
         </table>
         <?php
         $servername = "localhost";
@@ -47,6 +39,5 @@
         mysqli_close($conn);
         ?> 
         <br/>
-        <a href="index.html"><button>volver Atras</button></a>
     </body>
 </html> 
