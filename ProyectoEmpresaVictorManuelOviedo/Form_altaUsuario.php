@@ -12,23 +12,37 @@ and open the template in the editor.
         <script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>
-            function validaLogin(){
+            var sigue = false;
+            function validaLogin() {
                 $.ajax({
-                    type:"POST",
-                    url:"Procesa_verificacion_login.php",
-                    data:{login:$("#Login").val()}
-                }).done(function(msg){
-                    if(msg=="true"){
-                        $("#texto").text("Login Valido").css("color","lime");
-                    }else{
-                        $("#texto").text("Login Invalido").css("color","red");
+                    type: "POST",
+                    url: "Procesa_verificacion_login.php",
+                    data: {login: $("#Login").val()}
+                }).done(function (msg) {
+                    if (msg == "true") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
+                        $("#texto").text("Login Valido").css("color", "lime");
+                        sigue = true;
+                    } else {
+                        if ($("#Login").val() != "") {
+                            $("#texto").text("Login Invalido").css("color", "red");
+                        }else{
+                             $("#texto").text("")
+                        }
+                        sigue = false;
                     }
                 });
+            }
+
+            function comprobar() {
+                if (!sigue) {
+                    alert("comprueba los campos");
+                }
+                return sigue;
             }
         </script>
     </head>
     <body>
-        <form method="POST" action="Procesa_altaUsuario.php">
+        <form method="POST" action="Procesa_altaUsuario.php" onsubmit="return comprobar()">
             <div>Login: <input type="text" name="Login" id="Login" onblur="validaLogin()" required/> Contraseña: <input type="password" name="Pass" id="pass" required/></div>
             <div id="texto"></div>
             <div>Nombre: <input type="text" name="Name" id="name" required/> Apellidos: <input type="text" name="Surname" id="surname" required/></div>

@@ -8,7 +8,7 @@
         $nombre = $_POST["Name"];
         $ape = $_POST["Surname"];
         $log = $_POST["Login"];
-        $pass = $_POST["Pass"];
+        $pass = md5($_POST["Pass"]);
         $tipo = $_POST["Type"];
         $pregunta = $_POST["Question"];
         $respuesta = $_POST["Answer"];

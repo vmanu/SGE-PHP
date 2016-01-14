@@ -37,7 +37,7 @@
             $databasevalues=  $result->fetch_assoc();
             $nombre=$databasevalues["nombre"];
             $ape = $databasevalues["apellidos"];
-            $pass = $databasevalues["pwd"];
+            $pass = md5($databasevalues["pwd"]);
             $tipo = $databasevalues["tipo"];
             $pregunta = $databasevalues["pregunta"];
             $respuesta =$databasevalues["respuesta"];
