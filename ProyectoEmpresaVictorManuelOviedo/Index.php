@@ -30,16 +30,16 @@ and open the template in the editor.
             function comprobar() {
                 validaLogin();
                 if (!sigue) {
-                    alert("Login Incorrecto");
+                    alert("Login o contraseña incorrecta");
                 }
                 return sigue;
             }
         </script>
     </head>
     <body>
-        <form method="POST" action="Procesa_altaUsuario.php" onsubmit="return comprobar()">
+        <form method="POST" action="Menu.php" onsubmit="return comprobar()">
             <div>Login: <input type="text" name="Login" id="Login" required/> Contraseña: <input type="password" name="Pass" id="pass" required/></div>
-            <div><input type="submit" id="submit"/></div>
+            <div><input type="submit" id="submit" value="Entrar"/></div>
         </form>
     </body>
 </html>
