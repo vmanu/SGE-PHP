@@ -20,13 +20,10 @@ and open the template in the editor.
             $username = "root";
             $password = "";
             $dbname = "empresa";
-            echo "Hello0";
             $conn = new mysqli($servername, $username, $password, $dbname);
-            echo "Hello1";
             if ($conn->connect_error) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-            echo "Hello2";
             $sql = "SELECT login FROM usuarios";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
