@@ -10,29 +10,23 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>
-            var sigue = false;
-            function validaLogin() {
+            function comprobar() {
+                var devuelve=false;
                 $.ajax({
                     type: "POST",
                     url: "Procesa_Index.php",
                     data: {login: $("#Login").val(),pass: $("#pass").val()}
                 }).done(function (msg) {
                     if (msg == "true") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
-                        sigue = true;
+                        window.location="Menu.php";
+                        devuelve = true;
                     } else {
-                        sigue = false;
+                        devuelve = false;
+                        alert("Login Incorrecto");
                     }
                 });
-            }
-            
-            function comprobar() {
-                validaLogin();
-                if (!sigue) {
-                    alert("Login o contraseña incorrecta");
-                }
-                return sigue;
+                return devuelve;
             }
         </script>
     </head>

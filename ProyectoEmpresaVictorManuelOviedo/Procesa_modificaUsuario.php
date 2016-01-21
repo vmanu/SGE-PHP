@@ -30,14 +30,6 @@
                 </td>
             </tr>
             <tr>
-                <td>Password: </td>
-                <td>
-                    <?php
-                    echo $_POST["Pass"];
-                    ?>
-                </td>
-            </tr>
-            <tr>
                 <td>Tipo: </td>
                 <td>
                     <?php
@@ -79,12 +71,11 @@
         $nombre = $_POST["Name"];
         $ape = $_POST["Surname"];
         $log = $_POST["Login"];
-        $pass = $_POST["Pass"];
         $tipo = $_POST["Type"];
         $pregunta = $_POST["Question"];
         $respuesta = $_POST["Answer"];
 //UPDATE table_name SET column1=value1,column2=value2,... WHERE some_column=some_value;
-        $sql = "UPDATE Usuarios SET nombre='$nombre', apellidos='$ape', pwd='$pass', tipo='$tipo', pregunta='$pregunta', respuesta='$respuesta' WHERE login='$log'";
+        $sql = "UPDATE Usuarios SET nombre='$nombre', apellidos='$ape', tipo='$tipo', pregunta='$pregunta', respuesta='$respuesta' WHERE login='$log'";
 
         if ($conn->query($sql) === TRUE) {
             echo "Updating created successfully";

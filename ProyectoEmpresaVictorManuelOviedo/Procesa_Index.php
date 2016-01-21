@@ -5,7 +5,7 @@ $username = "root";
 $password = "";
 $dbname = "empresa";
 $Login = $_POST["login"];
-$Pass=md5($_REQUEST["pass"]);
+$Pass=md5($_POST["pass"]);
 if ($Login != ""&&$Pass!="") {
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -13,13 +13,13 @@ if ($Login != ""&&$Pass!="") {
     }
     $sql = "Select login from usuarios where login='" . $Login . "' and pwd='".$Pass."'";
     $result = mysqli_query($conn, $sql);
-    if ($result->num_rows == 0) {
+    if ($result->num_rows != 0) {
         echo "true";
     } else {
         echo "false";
     }
     mysqli_close($conn);
 } else {
-    echo "false";
+    echo "falsede";
 }
 
