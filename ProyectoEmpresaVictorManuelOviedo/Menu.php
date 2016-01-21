@@ -25,7 +25,7 @@
                     $('#limodifica,#vlimodifica').addClass('active');
                 });
                 $("#listado,#vlistado").click(function () {
-                    $("#content").load("Form_altaUsuario.php");
+                    $("#content").load("Form_listarUsuario.php");
                     quitarActive();
                     $('#lilistado,#vlilistado').addClass('active');
                 });
