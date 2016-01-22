@@ -57,18 +57,9 @@
             }
             $sql = "SELECT login FROM usuarios";
             $result = $conn->query($sql);
-            $primero=true;
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<option value='" . $row["login"] . "'>" . $row["login"] . "</option>";
-                    if($primero){
-                        $primero=false;
-                        $nombre=$row["nombre"];
-                        $ape=$row["apellidos"];
-                        $pregunta=$row["pregunta"];
-                        $respuesta=$row["respuesta"];
-                        $tipo=$row["tipo"];
-                    }
                 }
             } else {
                 echo "0 results";
@@ -77,6 +68,11 @@
             ?>
         </select>
             <table>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="Pass" id="pass" required/>
+                    </td>
+                </tr>
                 <tr>
                     <td>Nombre: </td>
                     <td><input type="text" name="Name" id="name" required/>

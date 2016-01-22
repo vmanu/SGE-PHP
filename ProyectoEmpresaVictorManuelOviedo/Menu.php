@@ -60,15 +60,15 @@
 
         <div>
             <div>
-                <div class="col-md-2" style="padding: 0px; height: 100%">
+                <div class="col-sm-1" style="padding: 0px; height: 100%">
                     <nav class="navbar navbar-inverse" style="height: 100%">
                         <div class="container-fluid">
                             <div>
                                 <ul class="nav navbar-nav verticalmenu" >
-                                    <li id='lialta'><a id="valta">Alta Usuario</a></li>
-                                    <li id="libaja"><a id="vbaja">Dar Baja Usuario</a></li>
-                                    <li id="limodifica"><a id="vmodifica">Modificar Usuario</a></li>
-                                    <li id="lilistado"><a id="vlistado">Listado Usuarios</a></li
+                                    <li id='lialta'><a id="valta">Alta Usuario</a></li><br/>
+                                    <li id="libaja"><a id="vbaja">Dar Baja Usuario</a></li><br/>
+                                    <li id="limodifica"><a id="vmodifica">Modificar Usuario</a></li><br/>
+                                    <li id="lilistado"><a id="vlistado">Listado Usuarios</a></li><br/>
                                 </ul>
                             </div>
                         </div>
