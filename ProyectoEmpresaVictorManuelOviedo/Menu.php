@@ -60,8 +60,8 @@
 
         <div>
             <div>
-                <div class="col-sm-1" style="padding: 0px; height: 100%">
-                    <nav class="navbar navbar-inverse" style="height: 100%">
+                <div class="col-sm-1" style="padding: 0px">
+                    <nav class="navbar navbar-inverse">
                         <div class="container-fluid">
                             <div>
                                 <ul class="nav navbar-nav verticalmenu" >

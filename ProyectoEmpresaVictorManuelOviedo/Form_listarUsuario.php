@@ -47,9 +47,9 @@
         </script>
     </head>
     <body>
-        <table>
+        <table style="border-collapse: collapse; text-align: center">
             <tr>
-                <td>Administrador</td><td>Normal</td>
+                <td style="border:1px black solid; padding:5px">Administrador</td><td style="border:1px black solid; padding:5px">Normal</td>
             </tr>
             <?php
             $servername = "localhost";
@@ -60,22 +60,29 @@
             if ($conn->connect_error) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-            $sql = "SELECT login, nombre, tipo FROM usuarios";
-            $result = $conn->query($sql);
-            $dataAdmin[];
-            $dataNorm[];
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $muestra=$row["login"]+" ["+$row["nombre"]+"]";
-                    if($row["tipo"]==="Administrador"){
-                        $dataAdmin[]=$muestra;
-                    }else{
-                        $dataNorm[]=$muestra;
-                    }
+            $sql = "SELECT login, nombre, tipo FROM usuarios WHERE tipo='Administrador'";
+            $sql2 = "SELECT login, nombre, tipo FROM usuarios WHERE tipo='Normal'";
+            $result = mysqli_query($conn, $sql);
+            $result2 = mysqli_query($conn, $sql2);
+            $row = mysqli_fetch_array($result);
+            $row2 = mysqli_fetch_array($result2);
+            while ($row||$row2) {
+                $muestra1=$row['nombre']." (".$row['login'].")";
+                $muestra2=$row2['nombre']." (".$row2['login'].")";
+                echo "<tr>";
+                if($muestra1==" ()"){
+                    echo "<td style='border:1px black solid; padding:5px'>-</td>";
+                }else{
+                    echo "<td style='border:1px black solid; padding:5px'>".$muestra1."</td>";
                 }
-                //$dataAdmin[]//
-            } else {
-                echo "0 results";
+                if($muestra2==" ()"){
+                    echo "<td style='border:1px black solid; padding:5px'>-</td>";
+                }else{
+                    echo "<td style='border:1px black solid; padding:5px'>".$muestra2."</td>";
+                }
+                echo "</tr>";
+                $row = mysqli_fetch_array($result);
+                $row2 = mysqli_fetch_array($result2);
             }
             mysqli_close($conn);
             ?>
