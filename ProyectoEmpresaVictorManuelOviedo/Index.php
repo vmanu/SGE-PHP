@@ -18,7 +18,6 @@ and open the template in the editor.
                     url: "Procesa_Index.php",
                     data: {login: $("#Login").val(),pass: $("#pass").val()}
                 }).done(function (msg) {
-                    alert(msg);
                     if (msg == "true") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
                         window.location="Menu.php";
                         devuelve = true;
