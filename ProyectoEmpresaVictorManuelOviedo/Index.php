@@ -16,7 +16,7 @@ and open the template in the editor.
                 $.ajax({
                     type: "POST",
                     url: "Procesa_Index.php",
-                    data: {login: $("#Login").val(),pass: $("#pass").val()}
+                    data: {login: $("#Login").val(),pass: $("#pass").val(),cbox: document.form.cbox.checked}
                 }).done(function (msg) {
                     if (msg == "true") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
                         window.location="Menu.php";
@@ -31,9 +31,10 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <form method="POST" action="Menu.php" onsubmit="return comprobar()">
-            <div>Login: <input type="text" name="Login" id="Login" required/> Contraseña: <input type="password" name="Pass" id="pass" required/></div>
+        <form method="POST" name="form" action="Menu.php" onsubmit="return comprobar()">
+            <div>Login: <input type="text" name="Login" id="Login" required value="<?php if(isset($_COOKIE["login"])){echo $_COOKIE["login"];}else{echo "";}?>"/> Contraseña: <input type="password" name="Pass" id="pass" required/></div>
             <div><input type="submit" id="submit" value="Entrar"/></div>
+            <input type="checkbox" name="cbox"/> Recordar Usuario
         </form>
     </body>
 </html>

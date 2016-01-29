@@ -6,6 +6,7 @@ $password = "";
 $dbname = "empresa";
 $Login = $_POST["login"];
 $Pass=md5($_POST["pass"]);
+$cbox=$_POST["cbox"];
 if ($Login != ""&&$Pass!="") {
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -21,5 +22,9 @@ if ($Login != ""&&$Pass!="") {
     mysqli_close($conn);
 } else {
     echo "falsede";
+}
+
+if($cbox=="true"){
+    setcookie("login",$Login);
 }
 

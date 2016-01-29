@@ -29,11 +29,11 @@
                     quitarActive();
                     $('#lilistado,#vlilistado').addClass('active');
                 });
-                $(".navbar-brand").click(function () {
-                    $("#content").load("bewelcome.html");
-                    quitarActive();
-                    $('#lialta,#vlialta').addClass('active');
-                });
+//                $(".navbar-brand").click(function () {
+//                    $("#content").load("bewelcome.html");
+//                    quitarActive();
+//                    $('#lialta,#vlialta').addClass('active');
+//                });
                 $("#content").load("bewelcome.html");
             });
 
@@ -47,7 +47,7 @@
         <nav class="navbar navbar-inverse" style="margin-bottom: 0px">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand">Maderid S.A.</a>
+                    <a class="navbar-brand" href="Index.php">Maderid S.A.</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li id='lialta'><a id="alta">Alta Usuario</a></li>
