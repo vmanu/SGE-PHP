@@ -12,10 +12,15 @@ if ($Login != ""&&$Pass!="") {
     if ($conn->connect_error) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    $sql = "Select login from usuarios where login='" . $Login . "' and pwd='".$Pass."'";
+    $sql = "Select login, tipo from usuarios where login='" . $Login . "' and pwd='".$Pass."'";
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows != 0) {
-        echo "true";
+        $resultado = $result->fetch_assoc();
+        if($resultado["tipo"]=="Administrador"){
+            echo "true Administrador";
+        }  else {
+            echo "true Normal";
+        }
     } else {
         echo "false";
     }
