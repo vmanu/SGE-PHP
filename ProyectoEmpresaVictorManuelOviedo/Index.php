@@ -16,7 +16,7 @@ and open the template in the editor.
                 $.ajax({
                     type: "POST",
                     url: "Procesa_Index.php",
-                    data: {login: $("#Login").val(), pass: $("#pass").val(), cbox: document.form.cbox.checked}
+                    data: {login: $("#Login").val(), pass: $("#pass").val(), cbox: document.form.cbox.checked, eva: "submitNormal"}
                 }).done(function (msg) {
                     if (msg == "true Administrador") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
                         window.location = "MenuAdministrador.php";
@@ -33,6 +33,29 @@ and open the template in the editor.
                 });
                 return devuelve;
             }
+
+            function gimmePass() {
+                var log = $("#Login").val();
+                if (log == "") {
+                    $("#submit").click();
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "Procesa_Index.php",
+                        data: {login: $("#Login").val(), eva: "submitRecuperaPass"}
+                    }).done(function (msg) {
+                        if (msg == "true") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
+                            window.location = "Form_altaUsuario.php";
+                        } else {
+                            $("span").text("Introduzca usuario existente").css("color", "red").show();
+                        }
+                    });
+                }
+            }
+
+            function quitaTexto() {
+                $("span").hide();
+            }
         </script>
     </head>
     <body>
@@ -43,10 +66,11 @@ and open the template in the editor.
                 } else {
                     echo "";
                 }
-                ?>"/> Contraseña: <input type="password" name="Pass" id="pass" required/></div>
+                ?>"/> <br/>Contraseña: <input type="password" name="Pass" id="pass" required/></div>
             <div><input type="submit" id="submit" value="Entrar"/></div>
-            <input type="checkbox" name="cbox"/> Recordar Usuario
-            <a href="">Se me ha olvidado la contraseña</a>
+            <input type="checkbox" name="cbox"/> Recordar Usuario<br/>
+            <button type="button" onclick="gimmePass()" onblur="quitaTexto()">Se me ha olvidado la contraseña</button><br/>
+            <span/>
         </form>
     </body>
 </html>
