@@ -45,7 +45,7 @@ and open the template in the editor.
                         data: {login: $("#Login").val(), eva: "submitRecuperaPass"}
                     }).done(function (msg) {
                         if (msg == "true") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
-                            window.location = "Form_altaUsuario.php";
+                            window.location = "Form_confirmaPregunta.php?login="+$( "#Login" ).val();
                         } else {
                             $("span").text("Introduzca usuario existente").css("color", "red").show();
                         }
