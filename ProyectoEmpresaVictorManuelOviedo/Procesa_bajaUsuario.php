@@ -1,43 +1,34 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Dando baja...</title>
-    </head>
-    <body>
-        <table>
+
+<?php
+$login=$_POST['Login'];
+echo "<table>
             <tr>
                 <td>Nickname: </td>
                 <td>
-                    <?php
-                    echo $_POST["Login"];
-                    ?>
+                    $login
                 </td>
             </tr>
-        </table>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "empresa";
+        </table>";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "empresa";
 
 // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-        if($conn->connect_error){
-            die("Connection failed: " . mysqli_connect_error());
-        }
+if ($conn->connect_error) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-        $log=$_POST["Login"];
-        
-        $sql = "DELETE FROM Usuarios WHERE login='$log'";
 
-        if ($conn->query($sql)===TRUE) {
-            echo "executed the query successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        mysqli_close($conn);
-        ?> 
-        <br/>
-    </body>
-</html> 
+
+$sql = "DELETE FROM Usuarios WHERE login='$login'";
+
+if ($conn->query($sql) === TRUE) {
+    echo "User deleted Sucesfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+mysqli_close($conn);

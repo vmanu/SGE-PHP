@@ -48,11 +48,6 @@
                     quitarActive(false);
                     $('#lilistadod,#vlilistadod').addClass('active');
                 });
-//                $(".navbar-brand").click(function () {
-//                    $("#content").load("bewelcome.html");
-//                    quitarActive();
-//                    $('#lialta,#vlialta').addClass('active');
-//                });
                 $("#content").load("bewelcome.html");
             });
 

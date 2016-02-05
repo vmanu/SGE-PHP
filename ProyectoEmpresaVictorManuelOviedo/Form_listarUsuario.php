@@ -3,48 +3,6 @@
     <head>
         <title>Modifica Usuario</title>
         <script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
-        <script>
-            $(document).ready(function () {
-                $.ajax({
-                    type: "POST",
-                    dataType: "json",
-                    url: "Procesa_ListadoUsuario.php",
-                    data: {}
-                }).done(function (data) {
-                    alert(data);
-                    console.log(data);
-                    alert("comprueba: " + data[0]['tipo']);
-                    alert(data[0]['tipo'] === "Administrador");
-                    for (var i = 0; data[i] != null; i++) {
-                        if (data[i]['tipo'] === "Administrador") {
-
-                        } else {
-
-                        }
-                    }
-                    $("#name").val(data.nombre);
-                    $("#surname").val(data.apellidos);
-                    $("#tipo").val(data.tipo);
-                    $("#answer").val(data.respuesta);
-                    switch (data.pregunta) {
-                        case "¿Nombre del padre?":
-                            $("#pa").prop("checked", "true");
-                            break;
-                        case "¿Nombre de la madre?":
-                            $("#ma").prop("checked", "true");
-                            break;
-                        case "¿Cual fue tu primer colegio?":
-                            $("#cole").prop("checked", "true");
-                            break;
-                        case "¿Como se llamaba tu primera mascota?":
-                            $("#mascota").prop("checked", "true");
-                            break;
-                    }
-                });
-            });
-
-
-        </script>
     </head>
     <body>
         <table style="border-collapse: collapse; text-align: center">
