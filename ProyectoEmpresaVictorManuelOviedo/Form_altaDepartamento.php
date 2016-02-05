@@ -9,8 +9,9 @@ and open the template in the editor.
         <title>Alta Usuario</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script>
             var sigue = false;
             function validaLogin() {
@@ -25,8 +26,8 @@ and open the template in the editor.
                     } else {
                         if ($("#Login").val() != "") {
                             $("#texto").text("Login Invalido").css("color", "red");
-                        }else{
-                             $("#texto").text("")
+                        } else {
+                            $("#texto").text("")
                         }
                         sigue = false;
                     }
@@ -43,19 +44,16 @@ and open the template in the editor.
     </head>
     <body>
         <form method="POST" action="Procesa_altaDepartamento.php" onsubmit="return comprobar()">
-            <div>Login: <input type="text" name="Login" id="Login" onblur="validaLogin()" required/> Contraseña: <input type="password" name="Pass" id="pass" required/></div>
-            <div id="texto"></div>
-            <div>Nombre: <input type="text" name="Name" id="name" required/> Apellidos: <input type="text" name="Surname" id="surname" required/></div>
-            <div>Pregunta: <div >
-                    <select style="width: 15%" name="Question" id="question">
-                        <option value="¿Nombre del padre?">¿Nombre del padre?</option>
-                        <option value="¿Nombre de la madre?">¿Nombre de la madre?</option>
-                        <option value="¿Cual fue tu primer colegio?">¿Cual fue tu primer colegio?</option>
-                        <option value="¿Como se llamaba tu primera mascota?">¿Como se llamaba tu primera mascota?</option>
-                    </select>
-                </div> Respuesta: <input type="text" name="Answer" id="answer" required/></div>
-            <div>Tipo: Administrador: <input type="radio" checked="" name="Type" value="Administrador" id="tipo"/> Normal: <input type="radio" name="Type" value="Normal" id="tipo"/></div>
-            <div><input type="submit" id="submit"/></div>
+            <div class="col-xs-12"><br/></div>
+            <div class="col-xs-12" style="margin: 5px">
+                <div class="col-xs-2"></div><div class="col-xs-3" style="text-align: right">Nombre Departamento:</div><div class="col-xs-5"><input type="text" name="nombre" id="nombre" required/></div><div class='col-xs-2'></div>
+            </div>
+            <div class="col-xs-12" style="margin: 5px">
+                <div class="col-xs-2"></div><div class="col-xs-3" style="text-align: right">Localizacion:</div><div class="col-xs-5"><input name="loc" id="loc" /></div><div class='col-xs-2'></div>
+            </div>
+            <div class="col-xs-12" style="margin: 5px; text-align: center">
+                <input type="submit" value="enviar"/>
+            </div>
         </form>
     </body>
 </html>
