@@ -6,35 +6,39 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Baja Usuario</title>
+        <title>Baja Depto</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
+        <script>
+            function comprobar() {
+                $.ajax({
+                    type: "POST",
+                    url: "Procesa_bajaDepartamento.php",
+                    data: {dept_no: $("#depto_no").val()}
+                }).done(function (msg) {
+                    $("#muestra").html(msg);
+                });
+                return false;
+            }
+        </script>
     </head>
     <body>
-        <form method="POST" action="Procesa_bajaUsuario.php">
-            Selecciona login
-            <select name="Login">
+        <form method="POST" action="" onsubmit="return comprobar()">
+            Selecciona departamento
+            <select name="depto_no" id="depto_no">
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "empresa";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            if ($conn->connect_error) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            $sql = "SELECT nombre FROM departamentos";
-            $result = $conn->query($sql);
+            include './ConectorBaseDatos.php';
+            $conn = new ConectorBaseDatos();
+            $sql = "SELECT * FROM departamentos";
+            $result = $conn->ejecutar($sql, "", "");
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo "<option value='".$row["login"]."'>".$row["login"]."</option>";
+                    echo "<option value='".$row["dept_no"]."'>".$row["dept_no"]."-".$row["dnombre"]."</option>";
                 }
             } else {
                 echo "0 results";
             }
-            mysqli_close($conn);
-                
             ?>
             </select>
             <div><input type="submit" id="submit" value="Dar de baja"/></div>
