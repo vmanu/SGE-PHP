@@ -23,26 +23,27 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body>
-        <form method="POST" action="" onsubmit="return comprobar()">
-            Selecciona departamento
-            <select name="depto_no" id="depto_no">
-            <?php
-            include './ConectorBaseDatos.php';
-            $conn = new ConectorBaseDatos();
-            $sql = "SELECT * FROM departamentos";
-            $result = $conn->ejecutar($sql, "", "");
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='".$row["dept_no"]."'>".$row["dept_no"]."-".$row["dnombre"]."</option>";
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-            </select>
-            <div><input type="submit" id="submit" value="Dar de baja"/></div>
-        </form>
+    <body><div id="muestra">
+            <form method="POST" action="" onsubmit="return comprobar()">
+                Selecciona departamento
+                <select name="depto_no" id="depto_no">
+                    <?php
+                    include './ConectorBaseDatos.php';
+                    $conn = new ConectorBaseDatos();
+                    $sql = "SELECT * FROM departamentos";
+                    $result = $conn->ejecutar($sql, "", "");
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row["dept_no"] . "'>" . $row["dept_no"] . "-" . $row["dnombre"] . "</option>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    ?>
+                </select>
+                <div><input type="submit" id="submit" value="Dar de baja"/></div>
+            </form>
+        </div>
     </body>
 </html>
 

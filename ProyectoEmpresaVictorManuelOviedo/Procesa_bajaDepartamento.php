@@ -1,43 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Dando baja...</title>
-    </head>
-    <body>
-        <table>
-            <tr>
-                <td>Nickname: </td>
-                <td>
-                    <?php
-                    echo $_POST["Login"];
-                    ?>
-                </td>
-            </tr>
-        </table>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "empresa";
-
-// Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-        if($conn->connect_error){
-            die("Connection failed: " . mysqli_connect_error());
-        }
-
-        $log=$_POST["Login"];
-        
-        $sql = "DELETE FROM Usuarios WHERE login='$log'";
-
-        if ($conn->query($sql)===TRUE) {
-            echo "executed the query successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        mysqli_close($conn);
-        ?> 
-        <br/>
-    </body>
-</html> 
+<?php
+$dept_no=$_POST["dept_no"];
+include './ConectorBaseDatos.php';
+$sql = "DELETE FROM departamentos WHERE dept_no=$dept_no";
+$conn = new ConectorBaseDatos();
+$succesfulText ="Department removed correctly<br/>";
+$text="The department removed had as id=$dept_no";
+$datos=$conn->ejecutar($sql,$text,$succesfulText);
