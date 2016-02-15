@@ -1,3 +1,9 @@
+<?php
+include './ControlSesion.php';
+$session=new ControlSesion();
+$session->gestiona();
+?>
+
 <html>
     <head>
         <title>Index</title>

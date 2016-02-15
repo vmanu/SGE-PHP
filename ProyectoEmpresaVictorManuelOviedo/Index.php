@@ -21,14 +21,16 @@ and open the template in the editor.
                     data: {login: $("#Login").val(), pass: $("#pass").val(), cbox: document.form.cbox.checked, eva: "submitNormal"}
                 }).done(function (msg) {
                     if (msg == "true Administrador") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
+                        $_SESSION["autentificado"]="SI";                
                         window.location = "Menu.php?tipo=Admin";
                         devuelve = true;
-                        $_SESSION["Autentificado"]="SI";
+                        
                     } else {
                         if (msg == "true Normal") {
+                            $_SESSION["autentificado"]="SI";                
                             window.location = "Menu.php?tipo=Normal";
                             devuelve = true;
-                            $_SESSION["Autentificado"]="SI";
+                            
                         } else {
                             devuelve = false;
                             alert("Login Incorrecto");
