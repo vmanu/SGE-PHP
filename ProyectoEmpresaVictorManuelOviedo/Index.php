@@ -23,10 +23,12 @@ and open the template in the editor.
                     if (msg == "true Administrador") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
                         window.location = "Menu.php?tipo=Admin";
                         devuelve = true;
+                        $_SESSION["Autentificado"]="SI";
                     } else {
                         if (msg == "true Normal") {
                             window.location = "Menu.php?tipo=Normal";
                             devuelve = true;
+                            $_SESSION["Autentificado"]="SI";
                         } else {
                             devuelve = false;
                             alert("Login Incorrecto");
