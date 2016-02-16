@@ -4,6 +4,11 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include './ControlSesion.php';
+$sesion=new ControlSesion();
+$sesion->login();
+?>
 <html>
     <head>
         <title>MiEmpresa</title>
@@ -21,16 +26,12 @@ and open the template in the editor.
                     data: {login: $("#Login").val(), pass: $("#pass").val(), cbox: document.form.cbox.checked, eva: "submitNormal"}
                 }).done(function (msg) {
                     if (msg == "true Administrador") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
-                        $_SESSION["autentificado"]="SI";                
                         window.location = "Menu.php?tipo=Admin";
                         devuelve = true;
-                        
                     } else {
                         if (msg == "true Normal") {
-                            $_SESSION["autentificado"]="SI";                
                             window.location = "Menu.php?tipo=Normal";
                             devuelve = true;
-                            
                         } else {
                             devuelve = false;
                             alert("Login Incorrecto");
@@ -51,9 +52,7 @@ and open the template in the editor.
                         data: {login: $("#Login").val(), eva: "submitRecuperaPass"}
                     }).done(function (msg) {
                         if (msg == "true") {//SI TUVIERAS PROBLEMAS, PRUEBA A PONER msg.trim() para quitarle espacios que a veces salen
-
-                            window.location = "Form_confirmaPregunta.php?login="+$( "#Login" ).val();
-
+                            window.location = "Form_confirmaPregunta.php?login=" + $("#Login").val();
                         } else {
                             $("span").text("Introduzca usuario existente").css("color", "red").show();
                         }

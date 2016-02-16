@@ -1,10 +1,9 @@
-<?php
-include './ControlSesion.php';
-$session=new ControlSesion();
-$session->gestiona();
-?>
-
 <html>
+    <?php
+include './ControlSesion.php';
+$sesion=new ControlSesion();
+$sesion->gestiona();
+?>
     <head>
         <title>Index</title>
         <meta charset="utf-8">
@@ -177,4 +176,5 @@ $session->gestiona();
             <div class="col-md-9" id="content" style="padding-top: 20px"></div>
         </div>
     </body>
+    
 </html>
