@@ -16,7 +16,6 @@ class ControlSesion {
                 $fechaGuardada = $ahora;
             }
             $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
-            //$tiempo_transcurrido=400;
             if ($tiempo_transcurrido >= 600) {
                 session_unset();
                 session_destroy(); // destruyo la sesión 

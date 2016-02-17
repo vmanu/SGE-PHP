@@ -1,6 +1,6 @@
 <?php
 include './ControlSesion.php';
-$sesion=new ControlSesion();
+$sesion = new ControlSesion();
 $sesion->gestiona();
 ?>
 <html>
@@ -163,6 +163,7 @@ $sesion->gestiona();
                         <li id="libajape"><a id="bajape">Borrar Pedido</a></li>
                         <li id="limodificape"><a id="modificape">Modificar Pedido</a></li>
                         <li id="lilistadope"><a id="listadope">Listar Pedidos</a></li>
+                        <li id="ligeneradoc"><a id="generadoc">Generar Documento</a></li>
                     </ul>
                 </div>
                 <div class="dropdown" style="float: left; margin-right: 10px">
@@ -174,9 +175,18 @@ $sesion->gestiona();
                         <li id="lilistadoc"><a id="listadoc">Listado Clientes</a></li>
                     </ul>
                 </div>
+                <div style="float: right">
+                    <span class="btn btn-primary dropdown-toggle" style="background:black;border:black" >Usuario: </span>
+                    <div class="dropdown" style="float: right; margin-right: 10px">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background: red; border: darkred"><?= $_SESSION["user"] ?> <span class="caret"/></button>
+                        <ul class="dropdown-menu dropdown-menu-right" id="menus">
+                            <li ><a id="altac">Modificar</a></li>
+                            <li ><a id="bajac"><a href="logout.php">Cerrar Sesion</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <span><?= $_SESSION["user"] ?></span>
-            <span><a href="logout.php" sytle="color:red;">salir</a></span>
+
         </nav>
         <div>
             <div class="col-md-9" id="content" style="padding-top: 20px"></div>
