@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+include './ControlSesion.php';
+$sesion=new ControlSesion();
+$sesion->gestiona();
+?>
 <html>
     <head>
         <title>Modifica Usuario</title>

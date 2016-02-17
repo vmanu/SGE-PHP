@@ -1,3 +1,8 @@
+<?php
+include './ControlSesion.php';
+$sesion=new ControlSesion();
+$sesion->gestiona();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.

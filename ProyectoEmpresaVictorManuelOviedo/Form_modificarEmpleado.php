@@ -1,3 +1,8 @@
+<?php
+include './ControlSesion.php';
+$sesion=new ControlSesion();
+$sesion->gestiona();
+?>
 <!DOCTYPE html>
 <html>
     <head>

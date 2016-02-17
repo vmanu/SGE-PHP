@@ -1,9 +1,9 @@
-<html>
-    <?php
+<?php
 include './ControlSesion.php';
 $sesion=new ControlSesion();
 $sesion->gestiona();
 ?>
+<html>
     <head>
         <title>Index</title>
         <meta charset="utf-8">
@@ -105,7 +105,11 @@ $sesion->gestiona();
                 <div class="navbar-header" style="margin-right: 3%">
                     <a class="navbar-brand" href="Index.php">Maderid S.A.</a>
                 </div>
-                <div <?php if ($tipo == "Normal") {echo "hidden";} ?>>
+                <div <?php
+                if ($tipo == "Normal") {
+                    echo "hidden";
+                }
+                ?>>
                     <div class="dropdown" style="float: left; margin-right: 10px">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Usuarios <span class="caret"/></button>
                         <ul class="dropdown-menu" id="menus">
@@ -132,49 +136,51 @@ $sesion->gestiona();
                             <li id="lilistadoem"><a id="listadoem">Listado Empleados</a></li>
                         </ul>
                     </div>
-                    
+
                 </div>
                 <div class="dropdown" style="float: left; margin-right: 10px">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Productos <span class="caret"/></button>
-                        <ul class="dropdown-menu" id="menus">
-                            <li id='lialtapr'><a id="altapr">Alta Producto</a></li>
-                            <li id="libajapr"><a id="bajapr">Baja Producto</a></li>
-                            <li id="limodificapr"><a id="modificapr">Modificar Producto</a></li>
-                            <li id="lilistadopr"><a id="listadopr">Listar Productos</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown" style="float: left; margin-right: 10px">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pagos <span class="caret"/></button>
-                        <ul class="dropdown-menu" id="menus">
-                            <li id='lialtapa'><a id="altapa">Nuevo Pago</a></li>
-                            <li id="libajapa"><a id="bajapa">Borrar Pago</a></li>
-                            <li id="limodificapa"><a id="modificapa">Modificar Pago</a></li>
-                            <li id="lilistadopa"><a id="listadopa">Listar Pagos</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown" style="float: left; margin-right: 10px">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pedidos <span class="caret"/></button>
-                        <ul class="dropdown-menu" id="menus">
-                            <li id='lialtape'><a id="altape">Nuevo Pedido</a></li>
-                            <li id="libajape"><a id="bajape">Borrar Pedido</a></li>
-                            <li id="limodificape"><a id="modificape">Modificar Pedido</a></li>
-                            <li id="lilistadope"><a id="listadope">Listar Pedidos</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown" style="float: left; margin-right: 10px">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Clientes <span class="caret"/></button>
-                        <ul class="dropdown-menu dropdown-menu-right" id="menus">
-                            <li id='lialtac'><a id="altac">Alta Cliente</a></li>
-                            <li id="libajac"><a id="bajac">Dar Baja Cliente</a></li>
-                            <li id="limodificac"><a id="modificac">Modificar Cliente</a></li>
-                            <li id="lilistadoc"><a id="listadoc">Listado Clientes</a></li>
-                        </ul>
-                    </div>
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Productos <span class="caret"/></button>
+                    <ul class="dropdown-menu" id="menus">
+                        <li id='lialtapr'><a id="altapr">Alta Producto</a></li>
+                        <li id="libajapr"><a id="bajapr">Baja Producto</a></li>
+                        <li id="limodificapr"><a id="modificapr">Modificar Producto</a></li>
+                        <li id="lilistadopr"><a id="listadopr">Listar Productos</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" style="float: left; margin-right: 10px">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pagos <span class="caret"/></button>
+                    <ul class="dropdown-menu" id="menus">
+                        <li id='lialtapa'><a id="altapa">Nuevo Pago</a></li>
+                        <li id="libajapa"><a id="bajapa">Borrar Pago</a></li>
+                        <li id="limodificapa"><a id="modificapa">Modificar Pago</a></li>
+                        <li id="lilistadopa"><a id="listadopa">Listar Pagos</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" style="float: left; margin-right: 10px">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pedidos <span class="caret"/></button>
+                    <ul class="dropdown-menu" id="menus">
+                        <li id='lialtape'><a id="altape">Nuevo Pedido</a></li>
+                        <li id="libajape"><a id="bajape">Borrar Pedido</a></li>
+                        <li id="limodificape"><a id="modificape">Modificar Pedido</a></li>
+                        <li id="lilistadope"><a id="listadope">Listar Pedidos</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" style="float: left; margin-right: 10px">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Clientes <span class="caret"/></button>
+                    <ul class="dropdown-menu dropdown-menu-right" id="menus">
+                        <li id='lialtac'><a id="altac">Alta Cliente</a></li>
+                        <li id="libajac"><a id="bajac">Dar Baja Cliente</a></li>
+                        <li id="limodificac"><a id="modificac">Modificar Cliente</a></li>
+                        <li id="lilistadoc"><a id="listadoc">Listado Clientes</a></li>
+                    </ul>
+                </div>
             </div>
+            <span><?= $_SESSION["user"] ?></span>
+            <span><a href="logout.php" sytle="color:red;">salir</a></span>
         </nav>
         <div>
             <div class="col-md-9" id="content" style="padding-top: 20px"></div>
         </div>
     </body>
-    
+
 </html>
