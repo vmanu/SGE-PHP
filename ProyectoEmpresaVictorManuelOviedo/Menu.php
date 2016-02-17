@@ -176,7 +176,7 @@ $sesion->gestiona();
                     </ul>
                 </div>
                 <div style="float: right">
-                    <span class="btn btn-primary dropdown-toggle" style="background:black;border:black" >Usuario: </span>
+                    <span class="btn btn-primary dropdown-toggle" style="background:black;border:black; cursor: default" >Usuario: </span>
                     <div class="dropdown" style="float: right; margin-right: 10px">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background: red; border: darkred"><?= $_SESSION["user"] ?> <span class="caret"/></button>
                         <ul class="dropdown-menu dropdown-menu-right" id="menus">
