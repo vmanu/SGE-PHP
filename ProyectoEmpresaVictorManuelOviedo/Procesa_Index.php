@@ -23,8 +23,10 @@ if ($tipoEval == "submitNormal") {
             $resultado = $result->fetch_assoc();
             if ($resultado["tipo"] == "Administrador") {
                 echo "true Administrador";
+                $_SESSION["Tipo"]="Administrador";
             } else {
                 echo "true Normal";
+                $_SESSION["Tipo"]="Normal";
             }
         } else {
             echo "false";

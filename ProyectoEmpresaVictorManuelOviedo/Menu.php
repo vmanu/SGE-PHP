@@ -13,7 +13,7 @@ $sesion->gestiona();
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script>
             $(document).ready(function () {
-                //$("#content").load("bewelcome.html");        
+                $("#content").load("bewelcome.html");        
                 $("#alta").click(function () {
                     $("#content").load("Form_altaUsuario.php");
                 });
@@ -95,11 +95,23 @@ $sesion->gestiona();
                 $("#listadoc").click(function () {
                     $("#content").load("Form_listarCliente.php");
                 });
+                $("#modifPerfil").click(function(){
+                   $("#content").load("Form_modificarPerfil.php");
+                });
+                $("#altape").click(function(){
+                   $("#content").load("Form_altaPedido.php");
+                });
+                $("#altac").click(function(){
+                   $("#content").load("Form_altaCliente.php");
+                });
+                $("#generadoc").click(function(){
+                   $("#content").load("Form_generarDocumento.php");
+                });
             });
         </script>
     </head>
     <body>
-        <?php $tipo = $_GET["tipo"]; ?>
+        <?php if(isset($_GET["tipo"])){$tipo =$_GET["tipo"];}else{if(isset($_SESSION)){$tipo = $_SESSION["Tipo"];}} ?>
         <nav class="navbar navbar-inverse" style="margin-bottom: 0px">
             <div class="container-fluid">
                 <div class="navbar-header" style="margin-right: 3%">
@@ -180,8 +192,8 @@ $sesion->gestiona();
                     <div class="dropdown" style="float: right; margin-right: 10px">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background: red; border: darkred"><?= $_SESSION["user"] ?> <span class="caret"/></button>
                         <ul class="dropdown-menu dropdown-menu-right" id="menus">
-                            <li ><a id="altac">Modificar</a></li>
-                            <li ><a id="bajac"><a href="logout.php">Cerrar Sesion</a></li>
+                            <li ><a id="modifPerfil">Modificar</a></li>
+                            <li ><a id="logout"><a href="logout.php">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
