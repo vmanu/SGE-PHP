@@ -1,0 +1,13 @@
+PEDIDO
+
+Codigo Pedido: 5
+Fecha Pedido: 2016-02-02
+Fecha Esperada: 2016-02-04
+Fecha Entrega: 2016-02-04
+Estado: Entregado
+Comentario: Todo bien
+CLIENTE
+  Codigo Cliente: 1
+  Nombre Cliente: Pedro
+  Nombre Contacto: Pedro
+  Apellido Contacto: Picapiedra

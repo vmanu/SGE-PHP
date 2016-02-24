@@ -49,7 +49,7 @@ $sesion->gestiona();
                 $.ajax({
                     type: "POST",
                     url: "Procesa_modificaUsuario.php",
-                    data: {Login: $("#Login").val(), Pass: $("#pass").val(), Name: $("#name").val(), Surname: $("#surname").val(), Type: $("#tipo").val(), Question: $('input[name=Question]:checked', '#form').val(), Answer: $("#answer").val()}
+                    data: {Login: document.getElementById("Login").innerHTML, Pass: $("#pass").val(), Name: $("#name").val(), Surname: $("#surname").val(), Type: $("#tipo").val(), Question: $('input[name=Question]:checked', '#form').val(), Answer: $("#answer").val()}
                 }).done(function (msg) {
                     $("#muestra").html(msg);
                 });
