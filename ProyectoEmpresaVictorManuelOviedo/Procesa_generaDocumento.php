@@ -16,7 +16,12 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$myfile = fopen("documento.txt", "w") or die("Unable to open file!");
+$carpeta="./documentos/";
+if(!file_exists($carpeta)){
+    mkdir($carpeta);
+}
+
+$myfile = fopen($carpeta."documento.txt", "w") or die("Unable to open file!");
 $txt = "PEDIDO\n\nCodigo Pedido: $codPed\nFecha Pedido: $fechaPed\nFecha Esperada: $fechaEsp\nFecha Entrega: $fechaEnt\nEstado: $estado\nComentario: $comentario\n$textCliente";
 fwrite($myfile, $txt);
 fclose($myfile);
