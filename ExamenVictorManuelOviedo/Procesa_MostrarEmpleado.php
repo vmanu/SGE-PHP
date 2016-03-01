@@ -16,10 +16,10 @@
                     data: {emp_no: $("#emp_no").val()}
                 }).done(function (data) {
                    $("#fecha").val(data.fecha_alt);
-                    if(data.salario>=20000){
-                        $("#salarioma").prop("checked");
+                    if(data.salario>=2000){
+                        $("#salarioma").prop("checked",true);
                     }else{
-                        $("#salariome").prop("checked");
+                        $("#salariome").prop("checked",true);
                     }
                 });
             }
@@ -54,8 +54,8 @@
                     <tr>
                         <td>Salario: </td>
                         <td>
-                            <input type="radio" name="salario" id="salarioma" value=">"/>>=20000<br/>
-                            <input type="radio" name="salario" id="salariome" value="<"/><20000<br/>
+                            <input type="radio" name="salario" id="salarioma" value=">"/>>=2000<br/>
+                            <input type="radio" name="salario" id="salariome" value="<"/><2000<br/>
                         </td>
                     </tr>
                 </table>

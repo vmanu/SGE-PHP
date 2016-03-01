@@ -4,19 +4,19 @@ $emp_no = $_POST["emp_no"];
 $fecha = $_POST["fecha"];
 $salario = $_POST["salario"];
 if($salario==">"){
-    $sal=25000;
+    $sal=2500;
 }else{
-    $sal=15000;
+    $sal=1500;
 }
 
 $conn = new ConectorBaseDatos();
 $sql = "UPDATE Empleados SET fecha_alt='$fecha', salario=$sal WHERE emp_no='$emp_no'";
-$result=$conn->ejecutar($sql, "", "Updated Employee successfully");
+$conn->ejecutar($sql, "", "Updated Employee successfully");
 
 $conn2 = new ConectorBaseDatos();
 $sql2 = "SELECT * FROM empleados WHERE emp_no='$emp_no'";
 $result2=$conn2->ejecutar($sql2, "", "");
-$res->$result2->fetch_assoc();
+$res=$result2->fetch_assoc();
 $total=$sal+$res["comision"];
     echo "<table>
                     <tr>

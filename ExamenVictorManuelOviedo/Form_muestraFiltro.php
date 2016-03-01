@@ -71,7 +71,7 @@
                     }
                     ?>
                 </select>
-                <input type="submit" id="submit" value="Modificar"/>
+                <input type="submit" id="submit" value="enviar"/>
             </form>
         </div>
     </body>

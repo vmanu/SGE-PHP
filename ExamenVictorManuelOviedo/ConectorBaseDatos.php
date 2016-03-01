@@ -22,7 +22,7 @@ class ConectorBaseDatos {
         } else {
             echo "Error: " . $query . "<br>" . $connection->connect_error;
         }
-        mysqli_close($conn);
+        mysqli_close($connection);
         return $result;
     }
 }
