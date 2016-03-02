@@ -56,7 +56,7 @@ $total=$sal+$res["comision"];
                     </tr>
                     <tr>
                         <td>Departamento: </td>
-                        <td>".$dept_no.
+                        <td>".$res["dept_no"].
                         "</td>
                     </tr>
                     <tr>
